@@ -20,3 +20,30 @@ school_data = {
     '2a': 13,
     '2b': 30
 }
+
+
+def incr_students(school_list: dict, class_: str):
+    try:
+        school_list[class_] += 1
+    except "Проблема с форматом данных 'список классов - класс'" as ex:
+        return ex
+
+
+def decr_students(school_list: dict, class_: str):
+    try:
+        school_list[class_] -= 1 if school_list[class_] > 0 else school_list[class_]
+    except "Проблема с форматом данных 'список классов - класс'" as ex:
+        return ex
+
+
+def add_class(school_list: dict, class_: str):
+    school_list[class_] = 0
+
+
+def remove_class(school_list: dict, class_: str):
+    if class_ in school_list:
+        school_list.pop(class_)
+
+
+def calc_students(school_list: dict):
+    return len(school_list)

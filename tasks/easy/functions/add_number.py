@@ -13,3 +13,15 @@ add_two(3)  # 5
 add_three = add_numb(3)
 add_three(3) # 6
 """
+
+
+def add_numb(num1: int):
+    def inner(num2: int):
+        return num1 + num2
+    return inner
+
+# add_two = add_numb(2)
+# print(add_two(3))  # 5
+#
+# add_three = add_numb(3)
+# print(add_three(3)) # 6

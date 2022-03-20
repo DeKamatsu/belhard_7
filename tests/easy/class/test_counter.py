@@ -1,6 +1,6 @@
 from collections.abc import Iterator
 
-from tasks.counter import Counter
+from tasks.easy.classes.counter import Counter
 
 
 def test_creation():

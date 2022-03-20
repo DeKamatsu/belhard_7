@@ -1,4 +1,4 @@
-from tasks.phone import Phone
+from tasks.easy.classes.phone import Phone
 
 
 def test_creation():

@@ -38,3 +38,71 @@
     - курица
     - булка
 """
+
+
+def bread(func):
+    def layer():
+        print("</------------\\>")
+        func()
+        print("<<\\____________/>")
+    return layer
+
+
+def onion(func):
+    def layer():
+        print("----- лук ------")
+        func()
+    return layer
+
+
+def tomato(func):
+    def layer():
+        print("*** помидоры ****")
+        func()
+    return layer
+
+
+def cheese(func):
+    def layer():
+        print("^^^^^ сыр ^^^^^^")
+        func()
+    return layer
+
+
+def salad(func):
+    def layer():
+        print("~~~~ салат ~~~~~")
+        func()
+    return layer
+
+
+@bread
+@onion
+@tomato
+def beef():
+    print("### говядина ###")
+
+
+@bread
+@cheese
+@salad
+def chicken():
+    print("|||| курица ||||")
+
+
+# beef()
+# chicken()
+
+# 1) Собрать с помощью декораторов гамбургер:
+#     - булка
+#     - лук
+#     - помидоры
+#     - говядина
+#     - булка
+#
+# 2) Собрать с помощью декораторов чикенбургер:
+#     - булка
+#     - сыр
+#     - салат
+#     - курица
+#     - булка

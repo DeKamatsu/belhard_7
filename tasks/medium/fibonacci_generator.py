@@ -18,3 +18,25 @@ File «C:/Python/Python3/python_generator.py», line 29, in
 print(next(fib))
 StopIteration
 """
+
+
+def fibonacci(num):
+    """
+    генератор fibonacci возвращает подряд значения чисел Фибоначчи до num
+    """
+    if num <= 1:
+        raise ValueError('Введите значение больше 1')
+    else:
+        num_prev = 1
+        f_num = 1
+        while f_num <= num:
+            yield f_num
+            f_num += num_prev
+            num_prev = f_num-num_prev
+
+
+# print(next(fibonacci(0)))
+# for i in fibonacci(15):
+#     print(i)
+
+

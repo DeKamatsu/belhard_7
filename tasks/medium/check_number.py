@@ -5,3 +5,12 @@ False, если нет
 
 Нельзя пользоваться операцией возведения в степень
 """
+
+
+def check_number(num):
+    if num == 2 or num == 0:
+        return True
+    elif num < 2:
+        return False
+    elif num > 2:
+        return check_number(num/2)

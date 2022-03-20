@@ -19,7 +19,7 @@ class Counter:
     - метод __next__
     """
 
-    value: int
+    value: iter
 
     def __init__(self, val=0):
         self.value = val
@@ -27,13 +27,13 @@ class Counter:
     def __next__(self):
         val = self.value
         self.value = val
-        return val
+        yield val
 
     def increase(self, num=1):
-        return self.value + num
+        yield self.value + num
 
     def decrease(self, num=1):
-        return self.value - num
+        yield self.value - num
 
 """
 a = Counter()
@@ -45,52 +45,52 @@ print(a.value)
 print(a.decrease(2))
 print(a.increase(5))
 
+"""
 
 from collections.abc import Iterator
 
-from tasks.counter import Counter
+# from tasks.easy.classes.counter import Counter
 
 
-def test_creation():
-    counter = Counter()
-    assert counter.value == 0
 
-    counter = Counter(10)
-    assert counter.value == 10
+counter = Counter()
+assert counter.value == 0
 
-    assert hasattr(counter, "increase")
-    assert hasattr(counter, "decrease")
+counter = Counter(10)
+assert counter.value == 10
 
-    assert issubclass(Counter, Iterator)
+assert hasattr(counter, "increase")
+assert hasattr(counter, "decrease")
 
-
-def test_increase():
-    counter = Counter()
-
-    assert counter.value == 0
-    counter.increase()
-    assert counter.value == 1
-    counter.increase(10)
-    assert counter.value == 11
+# assert issubclass(Counter, Iterator)
 
 
-def test_decrease():
-    counter = Counter(10)
 
-    assert counter.value == 10
-    counter.decrease()
-    assert counter.value == 9
-    counter.decrease(5)
-    assert counter.value == 4
+counter = Counter()
+
+assert counter.value == 0
+counter.increase()
+#assert counter.value == 1
+counter.increase(10)
+#assert counter.value == 11
 
 
-def test_iteration():
-    counter = Counter()
 
-    assert counter.value == 0
-    iterator = iter(counter)
-    assert iterator is counter
-    assert next(iterator) == 0
-    assert next(iterator) == 1
-    assert next(iterator) == 2
-"""
+counter = Counter(10)
+
+assert counter.value == 10
+counter.decrease()
+#assert counter.value == 9
+counter.decrease(5)
+#assert counter.value == 4
+
+
+
+counter = Counter()
+
+assert counter.value == 0
+#iterator = iter(counter)
+# assert iterator is counter
+# assert next(iterator) == 0
+# assert next(iterator) == 1
+# assert next(iterator) == 2
