@@ -19,21 +19,28 @@ class Counter:
     - метод __next__
     """
 
-    value: iter
+    value: int
 
     def __init__(self, val=0):
         self.value = val
 
+    def __iter__(self):
+        return self
+
     def __next__(self):
         val = self.value
-        self.value = val
-        yield val
+        self.value += 1
+        return val
 
     def increase(self, num=1):
-        yield self.value + num
+        val = self.value
+        self.value += num
+        return val
 
     def decrease(self, num=1):
-        yield self.value - num
+        val = self.value
+        self.value -= num
+        return val
 
 """
 a = Counter()
@@ -52,44 +59,44 @@ from collections.abc import Iterator
 # from tasks.easy.classes.counter import Counter
 
 
-
-counter = Counter()
-assert counter.value == 0
-
-counter = Counter(10)
-assert counter.value == 10
-
-assert hasattr(counter, "increase")
-assert hasattr(counter, "decrease")
-
+#
+# counter = Counter()
+# assert counter.value == 0
+#
+# counter = Counter(10)
+# assert counter.value == 10
+#
+# assert hasattr(counter, "increase")
+# assert hasattr(counter, "decrease")
+#
 # assert issubclass(Counter, Iterator)
-
-
-
-counter = Counter()
-
-assert counter.value == 0
-counter.increase()
-#assert counter.value == 1
-counter.increase(10)
-#assert counter.value == 11
-
-
-
-counter = Counter(10)
-
-assert counter.value == 10
-counter.decrease()
-#assert counter.value == 9
-counter.decrease(5)
-#assert counter.value == 4
-
-
-
-counter = Counter()
-
-assert counter.value == 0
-#iterator = iter(counter)
+#
+#
+#
+# counter = Counter()
+#
+# assert counter.value == 0
+# counter.increase()
+# assert counter.value == 1
+# counter.increase(10)
+# assert counter.value == 11
+#
+#
+#
+# counter = Counter(10)
+#
+# assert counter.value == 10
+# counter.decrease()
+# assert counter.value == 9
+# counter.decrease(5)
+# assert counter.value == 4
+#
+#
+#
+# counter = Counter()
+#
+# assert counter.value == 0
+# iterator = iter(counter)
 # assert iterator is counter
 # assert next(iterator) == 0
 # assert next(iterator) == 1

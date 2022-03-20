@@ -44,7 +44,7 @@ def bread(func):
     def layer():
         print("</------------\\>")
         func()
-        print("<<\\____________/>")
+        print("<\\____________/>")
     return layer
 
 
@@ -90,8 +90,8 @@ def chicken():
     print("|||| курица ||||")
 
 
-# beef()
-# chicken()
+beef()
+chicken()
 
 # 1) Собрать с помощью декораторов гамбургер:
 #     - булка

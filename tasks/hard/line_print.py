@@ -28,7 +28,7 @@ def line_print(list_to_print, lvl=0):
         if type(list_to_print[i]) == list:
             line_print(list_to_print[i], lvl + 1)
         else:
-            print('    '*lvl, list_to_print[i])
+            print('    '*lvl + str(list_to_print[i]))
         i += 1
 
 

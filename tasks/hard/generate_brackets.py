@@ -45,8 +45,8 @@ def generate_brackets(couples):
         current_combination = list(b for b in '(' * couples + ')' * couples)  # list of sings of one combination
         combo_list.append(combo_to_string(current_combination))  # set of string with combinations
         pick_up_index = -1
-        i = 0
-        while i < len(current_combination):
+        i = 1
+        while i < len(current_combination)-1:
             if current_combination[i] == '(':
                 pick_up_index = i
             if current_combination[i] == ')' and pick_up_index >= 0:
@@ -54,11 +54,11 @@ def generate_brackets(couples):
                     = current_combination[i], current_combination[pick_up_index]
                 combo_list.append(combo_to_string(current_combination))
                 pick_up_index = -1
-                i = 0
+                i = 1
             else:
                 i += 1
         return combo_list
 
 
-# print(generate_brackets(5))
+print(generate_brackets(5))
 

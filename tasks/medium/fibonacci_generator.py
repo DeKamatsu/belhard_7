@@ -27,7 +27,7 @@ def fibonacci(num):
     if num <= 1:
         raise ValueError('Введите значение больше 1')
     else:
-        num_prev = 1
+        num_prev = 0
         f_num = 1
         while f_num <= num:
             yield f_num
@@ -38,5 +38,6 @@ def fibonacci(num):
 # print(next(fibonacci(0)))
 # for i in fibonacci(15):
 #     print(i)
+
 
 
