@@ -23,4 +23,3 @@ def count_char(str_val: str):
         char_list[i] = str_val.count(i)
         count += 1
     return char_list
-

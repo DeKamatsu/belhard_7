@@ -8,11 +8,11 @@
 
 def sum_of_numbers(num):
     if type(num) == int:
-        sum = 0
+        q = 0
         num_str = str(abs(num))
         for d in num_str:
-            sum += int(d)
-        return sum
+            q += int(d)
+        return q
     else:
         raise TypeError('Введите целое число (тип int)')
 

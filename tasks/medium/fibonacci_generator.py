@@ -32,12 +32,9 @@ def fibonacci(num):
         while f_num <= num:
             yield f_num
             f_num += num_prev
-            num_prev = f_num-num_prev
+            num_prev = f_num - num_prev
 
 
 # print(next(fibonacci(0)))
 # for i in fibonacci(15):
 #     print(i)
-
-
-

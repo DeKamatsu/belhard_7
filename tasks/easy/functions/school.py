@@ -46,4 +46,4 @@ def remove_class(school_list: dict, class_: str):
 
 
 def calc_students(school_list: dict):
-    return len(school_list)
+    return sum(school_list[cls] for cls in school_list)

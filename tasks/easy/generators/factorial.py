@@ -14,7 +14,8 @@ next(factorial_gen) -> 24
 
 def factorial():
     num = 1
+    factor = 1
     while True:
-        yield num
-        num *= (num + 1)
-
+        yield factor
+        num += 1
+        factor *= num

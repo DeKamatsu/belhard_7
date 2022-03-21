@@ -8,9 +8,9 @@ False, если нет
 
 
 def check_number(num):
-    if num == 2 or num == 0:
+    if num == 2 or num == 1:
         return True
     elif num < 2:
         return False
     elif num > 2:
-        return check_number(num/2)
+        return check_number(num / 2)

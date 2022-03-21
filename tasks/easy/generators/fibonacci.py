@@ -18,9 +18,9 @@ def fibonacci():
     """
     генератор fibonacci возвращает подряд значения числе Фибоначчи
     """
-    num_prev = 1
     f_num = 1
+    f_next = 1
     while True:
         yield f_num
-        f_num += num_prev
-        num_prev = f_num-num_prev
+        f_next += f_num
+        f_num = f_next - f_num
