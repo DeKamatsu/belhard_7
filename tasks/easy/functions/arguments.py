@@ -21,16 +21,22 @@ https://pyneng.readthedocs.io/ru/latest/book/10_useful_functions/all_any.html
 
 
 def dict_from_args(*args, **kwargs):
+    args_sum = 0
     for a in args:
         if type(a) == dict:
             if all(str(a[key]).isalpha() for key in a):
                 kwargs_max_len = max(len(a[key]) for key in a)
             else:
                 raise TypeError("Все аргументы - ключевые слова должны быть строками")
-        elif all(type(num) == int for num in a):
-            args_sum = sum(a)
+    if all(type(num) == int for num in args):
+        args_sum = sum(num for num in args)
+    else:
+        raise TypeError("Все позиционные аргументы должны быть целыми")
+    if kwargs:
+        if all(str(kwargs[key]).isalpha() for key in kwargs):
+            kwargs_max_len = max(len(kwargs[key]) for key in kwargs)
         else:
-            raise TypeError("Все позиционные аргументы должны быть целыми")
+            raise TypeError("Все аргументы - ключевые слова должны быть строками")
     return {"args_sum": args_sum, "kwargs_max_len": kwargs_max_len}
 
 
